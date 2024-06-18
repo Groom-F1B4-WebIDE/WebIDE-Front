@@ -122,12 +122,12 @@
     }
 
     .container-info {
-        margin-top: 0px;
-        margin-bottom: 80px;
+        margin-bottom: 50px
     }
 
     .run-button {
         background-color: #4CAF50; /* 일반 상태 배경색 */
+        width: 100%;
         border: none;
         color: white;
         padding: 10px 20px;

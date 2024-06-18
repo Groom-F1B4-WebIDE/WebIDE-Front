@@ -4,6 +4,8 @@ import './App.css';
 import Main from './pages/Main';
 import CodeCompiler from './pages/CodeCompiler';
 import Containers from './pages/Containers';
+import FileCompiler from './pages/FileCompiler';
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/code" element={<CodeCompiler />} />
           <Route path="/files" element={<Containers />} />
+          <Route path="/filecompiler" element={<FileCompiler />} />
           <Route
             path="/"
             exact
