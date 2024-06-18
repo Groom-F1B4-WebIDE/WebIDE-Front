@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/Main-modal.css';
 
-function test({ darkMode, handleToggle }) {
+function main({ darkMode, handleToggle }) {
   return (
     <div className="container">
         <div className="sidebar">
@@ -126,4 +126,4 @@ function test({ darkMode, handleToggle }) {
   );
 }
 
-export default test;
+export default main;

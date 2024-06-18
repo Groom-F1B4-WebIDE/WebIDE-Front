@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Main from './pages/Main';
+import CodeCompiler from './pages/CodeCompiler';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -10,9 +12,18 @@ function App() {
   };
 
   return (
-    <div className={darkMode ? 'app dark-mode' : 'app'}>
-      <Main darkMode={darkMode} handleToggle={handleToggle} />
-    </div>
+    <Router>
+      <div className={darkMode ? 'app dark-mode' : 'app'}>
+        <Routes>
+          <Route path="/code" element={<CodeCompiler />} />
+          <Route
+            path="/"
+            exact
+            element={<Main darkMode={darkMode} handleToggle={handleToggle} />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
