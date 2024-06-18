@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './styles/Containers-modal.css';
 
 function Containers() {
@@ -8,8 +9,28 @@ function Containers() {
     const [fileType, setFileType] = useState('');
     const [files, setFiles] = useState([]);
     const [compiledFiles, setCompiledFiles] = useState([]);
+    const navigate = useNavigate();
+    const location = useLocation();
 
 
+    useEffect(() => {
+        // 로컬 스토리지에서 저장된 데이터 가져오기
+        const storedFiles = JSON.parse(localStorage.getItem('compiledFiles')) || [];
+        setCompiledFiles(storedFiles);
+    }, []);
+
+    useEffect(() => {
+        // compiledFiles가 변경될 때 로컬 스토리지에 저장
+        localStorage.setItem('compiledFiles', JSON.stringify(compiledFiles));
+    }, [compiledFiles]);
+
+    useEffect(() => {
+        // location.state가 변경될 때마다 컴파일된 파일 목록 업데이트
+        if (location.state && location.state.compiledFiles) {
+            setCompiledFiles(location.state.compiledFiles);
+        }
+    }, [location.state]);
+    
     const CreateContainerButton = () => {
         setModalOpen(true);
     };
@@ -45,11 +66,32 @@ function Containers() {
         setFiles([...files, { name: fileName, type: fileType }]);
 
     };    
+
+    const DeleteContainer = async (file) => {
+        try {
+            const response = await fetch('http://localhost:8080/file/delete', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({fileName : file.name}),
+            });
+            if (!response.ok) {
+                throw new Error('파일 삭제 실패');
+            }
     
-    const handleFileClick = (file) => {
-        // 파일을 클릭했을 때 수행할 작업 구현
-        console.log('클릭한 파일 정보:', file);
-        // 예를 들어 컴파일러 실행 등의 작업 수행 가능
+            const result = await response.json();
+            console.log('파일 생성 결과:', result);
+
+            setCompiledFiles(compiledFiles.filter(f => f.name !== file.name));
+        } catch (error) {
+            console.error('파일 삭제 오류:', error.message);
+            // 파일 생성에 실패하였을 때의 오류 처리 로직 추가
+        }
+    };    
+    
+    const executeContainer = (file) => {
+        navigate('/filecompiler', { state: { fileName: file.name, fileType: file.type } });
     };
     
     
@@ -76,9 +118,9 @@ function Containers() {
                             <div className='container-info'>
                                 <h3>{file.type === 'java' ? file.name + '.java' : file.type === 'python' ? file.name + '.py' : file.type === 'cpp' ? file.name + '.cpp' : file.name}</h3>
                             </div>
-                            <button className="run-button" onClick={() => handleFileClick(file)}>실행</button>
+                            <button className="run-button" onClick={() => executeContainer(file)}>실행</button>
+                            <button className="run-button" onClick={() => DeleteContainer(file)}>컨테이너 삭제</button>
                         </div>
-                        
                     ))}
                 </div>
             </div>
