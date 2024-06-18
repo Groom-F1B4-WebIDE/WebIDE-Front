@@ -7,8 +7,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import CodeCompiler from './pages/CodeCompiler';
 import Board from './pages/Board'; // 새로 만든 Board 컴포넌트 임포트
-import { Component } from 'react';
-
+import Containers from './pages/Containers';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -27,11 +26,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/code" element={<CodeCompiler />} />
           <Route path="/board" element={<Board />} /> {/* 새 라우트 추가 */}
+          <Route path="/files" element={<Containers />} />
           <Route
             path="/main"
             exact
             element={<Main darkMode={darkMode} handleToggle={handleToggle} />}
           />
+          
         </Routes>
       {/* </div> */}
     </Router>
