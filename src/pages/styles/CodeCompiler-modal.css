@@ -1,0 +1,191 @@
+.App {
+  width: 100%;
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px 20px; */
+  border-bottom: 1px solid #dee2e6;
+  width: 100%;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.codeEditorContainer {
+  flex: 3;
+  margin-right: 20px;
+}
+
+.languageSelect {
+  margin-bottom: 10px;
+}
+
+.compileButton {
+  margin-bottom: 10px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.consoleContainer {
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.consoleContainer h2 {
+  margin-top: 0;
+}
+
+.consoleContainer pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.language-select {
+  padding: 10px 20px;
+  margin-left: 50px;
+  border: 1px solid #ddd;
+  width: 200px;
+  border-radius: 8px;
+  background-color: rgb(241, 243, 249);
+  font-size: 16px;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+  outline: none;
+}
+
+.language-select:hover {
+  background-color: #e2e6ea;
+  border-color: #adb5bd;
+}
+
+.CodeMirror {
+  border-radius: 8px;
+}
+
+  /* .logo img {
+    height: 40px;
+  }
+  
+  nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .mainContainer {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .codeEditorContainer {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .languageSelect {
+    margin-bottom: 10px;
+  }
+  
+  .compileButton {
+    margin-bottom: 10px;
+  }
+  
+  .consoleContainer {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .consoleContainer h2 {
+    margin-top: 0;
+  }
+  
+  .consoleContainer pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+  }
+  
+  textarea {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .language-select {
+    padding: 10px 20px;
+    margin-left: 50px;
+    border: 1px solid #ddd;
+    width: 200px;
+    border-radius: 8px;
+    background-color: rgb(241, 243, 249);
+    font-size: 16px;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .language-select:hover {
+    background-color: #e2e6ea;
+    border-color: #adb5bd;
+  }
+  
+  .CodeMirror {
+    border-radius: 8px;
+  }
+   */
