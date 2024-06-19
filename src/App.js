@@ -23,7 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/code" element={<CodeCompiler />} />
           <Route
-            path="/"
+            path="/main"
             exact
             element={<Main darkMode={darkMode} handleToggle={handleToggle} />}
           />
