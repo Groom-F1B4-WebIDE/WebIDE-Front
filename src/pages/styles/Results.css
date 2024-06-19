@@ -1,0 +1,52 @@
+.results-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .results-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .submission-result {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .submission-result h2 {
+    margin-top: 0;
+  }
+  
+  .submission-result ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .test-case {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .test-case.correct {
+    border-color: #4CAF50;
+    background-color: #d4edda;
+  }
+  
+  .test-case.incorrect {
+    border-color: #f44336;
+    background-color: #f8d7da;
+  }
+  
+  .test-case p {
+    margin: 5px 0;
+  }
+  

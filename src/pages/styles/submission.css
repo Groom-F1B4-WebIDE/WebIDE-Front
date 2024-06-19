@@ -1,0 +1,38 @@
+.submission-result {
+    margin: 20px;
+  }
+  
+  .submission-result h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .submission-result ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .submission-result li {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+  }
+  
+  .submission-result li.correct {
+    border-color: #4CAF50;
+    background-color: #d4edda;
+  }
+  
+  .submission-result li.incorrect {
+    border-color: #f44336;
+    background-color: #f8d7da;
+  }
+  
+  .submission-result p {
+    margin: 5px 0;
+  }
+  

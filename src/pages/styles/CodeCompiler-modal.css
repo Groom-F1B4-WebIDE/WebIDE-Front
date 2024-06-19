@@ -27,55 +27,94 @@ header nav a:hover {
   text-decoration: underline;
 }
 
-.mainContainer {
+.main-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  /* justify-content: space-between;
+  align-items: flex-start; */
   margin-top: 20px;
   width: 100%;
 }
 
-.codeEditorContainer {
-  flex: 3;
-  margin-right: 20px;
+.code-editor-container {
+  flex: 1;
+  position: relative;
+  width: 70%;
+  padding: 10px;
 }
 
-.languageSelect {
-  margin-bottom: 10px;
-}
-
-.compileButton {
-  margin-bottom: 10px;
+.code-editor-container .compile-button {
   position: absolute;
   top: 5px;
   right: 10px;
-}
-
-.consoleContainer {
-  flex: 1;
-  background-color: #f5f5f5;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 5px; */
+  padding: 5px 10px;
+  gap: 15px;
+  background-color: #181717;
+  outline: 3px #181717 solid;
+  outline-offset: -3px;
   border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+  color: white;
 }
 
-.consoleContainer h2 {
+.compile-button .text {
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  transition: 400ms;
+}
+
+.compile-button:hover {
+  background-color: transparent;
+}
+
+.compile-button:hover .text {
+  color: #181717;
+}
+
+.compile-button svg path {
+  transition: 400ms;
+}
+
+.compile-button:hover svg path {
+  fill: white;
+}
+
+.console-container {
+  /* margin-top: 50px; */
+  width: 25%;
+  padding: 20px;
+  /* background-color: rgb(241, 243, 249); */
+  /* border-left: 1px solid #dee2e6; */
+}
+
+.console-container h2 {
   margin-top: 0;
 }
 
-.consoleContainer pre {
+.console-container pre {
   white-space: pre-wrap;
   word-wrap: break-word;
-  background-color: #000;
-  color: #fff;
+  /* background-color: #000;
+  color: #fff; */
   padding: 10px;
   border-radius: 5px;
   overflow: auto;
 }
 
-textarea {
+#language {
+  display: block;
+  margin-bottom: 10px;
+}
+
+textarea#interpreterInput {
   width: 100%;
   margin-top: 10px;
-  border-radius: 5px;
 }
 
 .language-select {
