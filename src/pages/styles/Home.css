@@ -1,70 +1,84 @@
-body, html {
+body {
   margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  height: 100%;
-  background-color: #1E1E2F;
-  color: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0f0f3d;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .home-container {
   text-align: center;
-  padding: 20px;
+  background-color: #0f0f3d;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-header {
+  width: 100%;
+  padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  padding-left: 500;
   align-items: center;
-  padding: 20px;
 }
 
 .logo {
-  font-size: 1.5em;
+  font-size: 2rem;
   font-weight: bold;
+  color: #61dafb;
 }
 
-.nav-links a {
-  color: #FFFFFF;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 1em;
+.home-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.nav-links a:hover {
-  text-decoration: underline;
+.home-main h1 {
+  font-size: 3rem;
+  color: #61dafb;
+  margin-bottom: 1rem;
 }
 
-.home-content {
-  margin-top: 100px;
-}
-
-.home-content h1 {
-  font-size: 3em;
-  color: #5A5FE5;
-}
-
-.home-content p {
-  font-size: 1.2em;
-  margin: 20px 0;
+.home-main p {
+  font-size: 1.2rem;
+  color: #c7c7f7;
+  margin-bottom: 2rem;
+  max-width: 600px;
 }
 
 .home-buttons {
-  margin-top: 30px;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
-.btn {
-  background-color: #6C63FF;
-  color: #FFFFFF;
-  padding: 10px 20px;
+.home-button {
+  background-color: #61dafb;
+  color: #ffffff; /* 흰색 글자 */
+  font-weight: bold; /* 굵게 */
   border: none;
-  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
   text-decoration: none;
-  font-size: 1em;
-  margin: 0 10px;
+  font-size: 1rem;
+  border-radius: 5px;
   transition: background-color 0.3s;
 }
 
-.btn:hover {
-  background-color: #5A52E0;
+.home-button:hover {
+  background-color: #21a1f1;
 }

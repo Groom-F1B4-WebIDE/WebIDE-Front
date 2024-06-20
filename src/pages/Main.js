@@ -3,6 +3,7 @@ import './styles/Main-modal.css';
 
 function main({ darkMode, handleToggle }) {
   return (
+    <div className={darkMode ? 'app dark-mode' : 'app'}>
     <div className="container">
         <div className="sidebar">
           <h2 className="logo">F1B4</h2>
@@ -123,6 +124,7 @@ function main({ darkMode, handleToggle }) {
 
           </div>
         </div>
+      </div>
       </div>
   );
 }

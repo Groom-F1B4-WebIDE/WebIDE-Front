@@ -16,7 +16,8 @@ function App() {
 
   return (
     <Router>
-      <div className={darkMode ? 'app dark-mode' : 'app'}>
+      {/* <div className={darkMode ? 'app dark-mode' : 'app'}> */}
+        {/* app을 각자 사용하는 페이지로 보내서 div 씌우기  */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
@@ -28,7 +29,7 @@ function App() {
             element={<Main darkMode={darkMode} handleToggle={handleToggle} />}
           />
         </Routes>
-      </div>
+      {/* </div> */}
     </Router>
   );
 }
