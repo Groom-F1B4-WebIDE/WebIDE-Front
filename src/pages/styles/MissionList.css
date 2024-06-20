@@ -1,0 +1,107 @@
+/* 전체 컨테이너 레이아웃 */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  /* 메인 콘텐츠 컨테이너 */
+  .content-container {
+    width: 70%;
+  }
+  
+  .mission-intro {
+    margin-bottom: 20px;
+  }
+  
+  .problem-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .problem-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+  }
+  
+  .problem-link {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .problem-link h3 {
+    margin: 0;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .problem-link p {
+    color: #666;
+  }
+  
+  .check-mark {
+    color: green;
+    font-size: 1.5em;
+  }
+  
+  /* 프로필 컨테이너 */
+  .profile-container {
+    width: 25%;
+    background: #f1f1ff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .profile-card {
+    text-align: center;
+  }
+  
+  .profile-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .activity-progress {
+    margin-top: 20px;
+  }
+  
+  .progress-bar {
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress {
+    background: #4caf50;
+    height: 10px;
+  }
+  
+  /* 페이지네이션 */
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pagination button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  

@@ -133,36 +133,56 @@ const [submissionResults, setSubmissionResults] = useState(null);
           <a href="#">Features</a>
         </nav>
       </header>
-      <div className="main-container">
-        <div className="problem-container">
-          {problem && (
-            <>
-              <h1>{problem.title}</h1>
-              <p>{problem.description}</p>
-              <pre>{problem.inputDescription}</pre>
-              <pre>{problem.outputDescription}</pre>
-            </>
-          )}
+      <div className="mission-container"> {/* 추가된 컨테이너 */}
+        <div className="problem-and-editor">
+            <div className="problem-container"> {/* 문제 설명 컨테이너 */}
+                {problem && (
+                <>
+                    <h1>{problem.title}</h1>
+                    <div className="description"> {/* 문제 설명 */}
+                        <p>{problem.description}</p>
+                    </div>
+                    <div className="input-output"> {/* 입력/출력 설명 */}
+                        <h3>입력 설명</h3>
+                        {problem.testCases.map((testCase, index) => (
+                            <pre key={index}>{`입력 ${index+1} : ${testCase.input}`}</pre>
+                        ))}
+                        <h3>출력 설명</h3>
+                        {problem.testCases.map((testCase, index) => (
+                            <pre key={index}>{`출력 ${index+1} : ${testCase.expectedOutput}`}</pre>
+                        ))}
+                    </div>
+                </>
+                )}
+            </div>
+            <div className="code-editor-container"> {/* 코드 에디터 컨테이너 */}
+                <h3>코드 편집기</h3>
+                <select id="language" value={language} onChange={(e) => setLanguage(e.target.value)} className="language-select">
+                    <option value="java">Java</option>
+                    <option value="python">Python</option>
+                    <option value="cpp">C++</option>
+                </select>
+                <CodeMirror
+                    value={code}
+                    height="500px"
+                    // maxWidth="400px"
+                    // width="100%"
+                    extensions={getLanguageExtension()}
+                    theme={amy}
+                    onChange={(value) => setCode(value)}
+                />
+                <button className="submit-button" onClick={submitSolution}>
+                    <p className="text">Submit</p>
+                </button>
+                {submissionResults && (
+                <div className="results-container"> {/* 제출 결과 컨테이너 */}
+                    <h3>테스트 케이스 실행 결과</h3>
+                    <SubmissionResult results={submissionResults} />
+                </div>
+            )}
+            </div>
+            </div>
         </div>
-        <div className="code-editor-container">
-          <select id="language" value={language} onChange={(e) => setLanguage(e.target.value)} className="language-select">
-            <option value="java">Java</option>
-            <option value="python">Python</option>
-            <option value="cpp">C++</option>
-          </select>
-          <button className="compile-button" onClick={submitSolution}>
-            <p className="text">Submit</p>
-          </button>
-          <CodeMirror
-            value={code}
-            height="500px"
-            extensions={getLanguageExtension()}
-            theme={amy}
-            onChange={(value) => setCode(value)}
-          />
-        </div>
-      </div>
-      {submissionResults && <SubmissionResult results={submissionResults} />}
     </div>
   );
 }

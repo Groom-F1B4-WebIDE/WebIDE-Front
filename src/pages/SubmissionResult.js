@@ -8,11 +8,13 @@ function SubmissionResult({ results }) {
       <ul>
         {results.map((result, index) => (
           <li key={index} className={`test-case ${result.status}`}>
-            <p>테스트 케이스 {index + 1}</p>
-            <p>입력: {result.input}</p>
-            <p>기대 출력: {result.expectedOutput}</p>
-            <p>사용자 출력: {result.userOutput}</p>
-            <p>결과: {result.status === 'correct' ? '통과' : '실패'}</p>
+            <h3>테스트 케이스 {index + 1}</h3>
+            <div className="result-detail">
+              <p><strong>입력:</strong> {result.input}</p>
+              <p><strong>기대 출력:</strong> {result.expectedOutput}</p>
+              <p><strong>사용자 출력:</strong> {result.userOutput}</p>
+              <p><strong>결과:</strong> {result.status === 'correct' ? '통과' : '실패'}</p>
+            </div>
           </li>
         ))}
       </ul>
