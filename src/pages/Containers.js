@@ -10,26 +10,25 @@ function Containers() {
     const [files, setFiles] = useState([]);
     const [compiledFiles, setCompiledFiles] = useState([]);
     const navigate = useNavigate();
-    const location = useLocation();
+    //const location = useLocation();
 
-
+    //localstorage에서 가져와서 파일 목록 불러옴 
     useEffect(() => {
-        // 로컬 스토리지에서 저장된 데이터 가져오기
-        const storedFiles = JSON.parse(localStorage.getItem('compiledFiles')) || [];
-        setCompiledFiles(storedFiles);
-    }, []);
+        console.log('saving data to local storage', compiledFiles);
 
+        const storedFiles = JSON.parse(sessionStorage.getItem('compiledFiles'));
+        if (storedFiles) {
+            setCompiledFiles(storedFiles);
+          }
+          
+        }, []);
+ 
     useEffect(() => {
-        // compiledFiles가 변경될 때 로컬 스토리지에 저장
-        localStorage.setItem('compiledFiles', JSON.stringify(compiledFiles));
-    }, [compiledFiles]);
-
-    useEffect(() => {
-        // location.state가 변경될 때마다 컴파일된 파일 목록 업데이트
-        if (location.state && location.state.compiledFiles) {
-            setCompiledFiles(location.state.compiledFiles);
+        // 로컬 스토리지에 이미 데이터가 있는지 확인
+        if (!sessionStorage.getItem('compiledFiles')) {
+            sessionStorage.setItem('compiledFiles', JSON.stringify(compiledFiles));
         }
-    }, [location.state]);
+    }, [compiledFiles]);
     
     const CreateContainerButton = () => {
         setModalOpen(true);
@@ -51,8 +50,11 @@ function Containers() {
             const result = await response.json();
             console.log('파일 생성 결과:', result);
 
-            setCompiledFiles([...compiledFiles, { name: fileName, type: fileType }]);
-
+            const newFile = { name: fileName, type: fileType };
+            setCompiledFiles([...compiledFiles, newFile]);
+            
+            // 로컬 스토리지에도 추가
+            sessionStorage.setItem('compiledFiles', JSON.stringify([...compiledFiles, newFile]));
 
         } catch (error) {
             console.error('파일 생성 오류:', error.message);
@@ -83,7 +85,13 @@ function Containers() {
             const result = await response.json();
             console.log('파일 생성 결과:', result);
 
-            setCompiledFiles(compiledFiles.filter(f => f.name !== file.name));
+            // 삭제된 파일을 상태에서 제거하고
+            const updatedFiles = compiledFiles.filter(f => f.name !== file.name);
+            setCompiledFiles(updatedFiles);
+
+            // 로컬 스토리지에서도 제거
+            sessionStorage.setItem('compiledFiles', JSON.stringify(updatedFiles));
+
         } catch (error) {
             console.error('파일 삭제 오류:', error.message);
             // 파일 생성에 실패하였을 때의 오류 처리 로직 추가
@@ -111,7 +119,9 @@ function Containers() {
                     <h1>모든 컨테이너</h1>
                 </div>
                 <div className="horizontal-line"></div>
-                <button className="file-create-button" onClick={CreateContainerButton}> + 컨테이너 생성하기 </button>
+                <button className="file-create-button" onClick={CreateContainerButton}> 
+                    <h4>+ 컨테이너 생성하기</h4>
+                </button>
                 <div className='container-box-list'>
                     {compiledFiles.map((file, index) => (
                         <div key={index} className="container-box">
