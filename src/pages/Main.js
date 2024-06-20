@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/Main-modal.css';
 
-function main({ darkMode, handleToggle }) {
+function Main({ darkMode, handleToggle }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    setUser(userData);
+  }, []);
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className={darkMode ? 'app dark-mode' : 'app'}>
     <div className="container">
@@ -79,12 +89,12 @@ function main({ darkMode, handleToggle }) {
           
           <div className="avatar">
             <img src="https://via.placeholder.com/40" alt="Avatar" />
-            <span>홍길동 @gildong</span>
+            <span>{user.memberName} @{user.memberEmail.split('@')[0]}</span>
           </div>
         </div>
         <div className="main-content">
           <div className="top-bar">
-            <h1>홍길동님의 대시보드입니다.</h1>
+          <h1>{user.memberName}님의 대시보드입니다.</h1>
           </div>
           <div className="content-row">
             <div className="statistics">
@@ -129,4 +139,4 @@ function main({ darkMode, handleToggle }) {
   );
 }
 
-export default main;
+export default Main;
