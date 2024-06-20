@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import CodeCompiler from './pages/CodeCompiler';
+import Board from './pages/Board'; // 새로 만든 Board 컴포넌트 임포트
+import { Component } from 'react';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -13,6 +15,7 @@ function App() {
   const handleToggle = () => {
     setDarkMode(!darkMode);
   };
+
 
   return (
     <Router>
@@ -23,6 +26,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/code" element={<CodeCompiler />} />
+          <Route path="/board" element={<Board />} /> {/* 새 라우트 추가 */}
           <Route
             path="/main"
             exact
@@ -32,6 +36,8 @@ function App() {
       {/* </div> */}
     </Router>
   );
+
+  
 }
 
 export default App;
