@@ -67,10 +67,10 @@ function MissionList() {
         </div>
         <h2>{currentWeek}주차</h2>
         <div className="problem-list">
-            {currentProblems.map(problem => (
+            {currentProblems.map((problem, index) => (
                 <div key={problem.id} className="card">
                     <div className="card-details">
-                        <p className="text-title">{problem.title} {isProblemSolved(problem.id) && <span className="check-mark">✔</span>}</p>
+                        <p className="text-title">{index + 1} 일 문제 {problem.title} {isProblemSolved(problem.id) && <span className="check-mark">✔</span>}</p>
                         <p className="text-body">{problem.description}</p>
                     </div>
                     <Link to={`/mission/${problem.id}`} className="problem-link">
