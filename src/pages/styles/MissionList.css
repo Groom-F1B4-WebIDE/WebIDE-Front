@@ -59,9 +59,14 @@
   .text-body {
     color: rgb(134, 134, 134);
   }
-  
+
   .text-title {
     font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .text-day {
+    font-size: 1.0em;
     font-weight: bold;
   }
   
