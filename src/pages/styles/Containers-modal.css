@@ -57,6 +57,20 @@
     border-top: 2px solid #ccc; /* 실선 스타일 */
     margin-bottom: 25px;
     }
+
+    .file-create-button {
+        height: 9%;
+        border-radius: 8px;
+        width: 20%;
+        background-color: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 15px;
+        color: rgba(27, 26, 26, 0.591);
+    }
   
     /* styles/Containers-modal.css */
     .modal {

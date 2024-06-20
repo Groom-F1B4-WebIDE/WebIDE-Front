@@ -73,7 +73,6 @@ function CodeCompiler() {
   const [inputQueue, setInputQueue] = useState([]);
   const [isCompiled, setIsCompiled] = useState(false);
   const [requiresInput, setRequiresInput] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
   const [fileName, setFileName]= useState('');
   const [fileType, setFileType] = useState('');    
@@ -84,7 +83,8 @@ function CodeCompiler() {
     console.log('코드:', code);
     console.log('언어:', language);
   }, [code, language]);
-*/
+    */
+   
   useEffect(() => {
     if (location.state) {
         setFileName(location.state.fileName);
@@ -100,7 +100,7 @@ function CodeCompiler() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ code, fileType }),
+        body: JSON.stringify({ code : code, language : fileType }),
       });
 
       if (!response.ok) {
