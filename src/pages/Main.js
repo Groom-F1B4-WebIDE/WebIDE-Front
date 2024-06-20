@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles/Main-modal.css';
 
 function Main({ darkMode, handleToggle }) {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('user'));
     setUser(userData);
   }, []);
-
+  const Logout = () => {
+    localStorage.clear();//로컬스토리지를 비워서 주소창에 main으로 바로 접속하려고하면 loading을 반환해서 페이지가 뜨지 않게
+    navigate('/');  
+  };
   if (!user) {
     return <div>Loading...</div>;
   }
@@ -75,6 +80,16 @@ function Main({ darkMode, handleToggle }) {
               <span>미션</span>
             </a>
           </li>
+          <li>
+              <a href="#" onClick={Logout}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 12C3 6.477 7.477 2 13 2C18.523 2 23 6.477 23 12C23 17.523 18.523 22 13 22C7.477 22 3 17.523 3 12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M10 15L13 12L10 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M14 15L17 12L14 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>홈</span>
+              </a>
+            </li>
           </ul>
 
           <div className="dark-mode-toggle">
