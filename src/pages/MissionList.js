@@ -67,18 +67,26 @@ function MissionList() {
         </div>
         <h2>{currentWeek}주차</h2>
         <div className="problem-list">
-          {currentProblems.map(problem => (
-            <div key={problem.id} className="problem-card">
-              <Link to={`/mission/${problem.id}`} className="problem-link">
-                <h3>{problem.day}일차: {problem.title} {isProblemSolved(problem.id) && <span className="check-mark">✔</span>}</h3>
-                <p>{problem.description}</p>
-              </Link>
-            </div>
-          ))}
+            {currentProblems.map(problem => (
+                <div key={problem.id} className="card">
+                    <div className="card-details">
+                        <p className="text-title">{problem.title} {isProblemSolved(problem.id) && <span className="check-mark">✔</span>}</p>
+                        <p className="text-body">{problem.description}</p>
+                    </div>
+                    <Link to={`/mission/${problem.id}`} className="problem-link">
+                        <button className="card-button">문제 풀기</button>
+                    </Link>
+                </div>
+            ))}
         </div>
         <div className="pagination">
-          <button onClick={handlePreviousWeek} disabled={currentWeek === 1}>이전 주</button>
-          <button onClick={handleNextWeek} disabled={(currentWeek * problemsPerWeek) >= problems.length}>다음 주</button>
+          <button onClick={handlePreviousWeek} disabled={currentWeek === 1} className="custom-button">
+            <span>Back</span>
+           </button>
+           <button onClick={handleNextWeek} disabled={(currentWeek * problemsPerWeek) >= problems.length} className="custom-button">
+            <span>Next</span>
+           </button>
+
         </div>
       </div>
       <div className="profile-container">
