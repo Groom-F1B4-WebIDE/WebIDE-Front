@@ -21,8 +21,11 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await api.post('/member/login', formData);
-      console.log('로그인 성공:', response.data);
-      navigate('/main'); // 로그인 성공 후 main.js로 이동
+      const user = response.data; 
+      console.log('로그인 성공:', user);
+      localStorage.setItem('user', JSON.stringify(user));
+
+      navigate('/main'); 
     } catch (error) {
       console.error('로그인 실패:', error);
     }

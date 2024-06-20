@@ -14,9 +14,8 @@ function App() {
 
   const handleToggle = () => {
     setDarkMode(!darkMode);
+    
   };
-
-
   return (
     <Router>
       {/* <div className={darkMode ? 'app dark-mode' : 'app'}> */}
