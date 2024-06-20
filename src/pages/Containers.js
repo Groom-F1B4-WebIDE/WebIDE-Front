@@ -98,8 +98,33 @@ function Containers() {
         }
     };    
     
-    const executeContainer = (file) => {
-        navigate('/filecompiler', { state: { fileName: file.name, fileType: file.type } });
+    const executeContainer = async (file) => {
+
+        try {
+            const url = `http://localhost:8080/file/read?fileName=${encodeURIComponent(file.name)}`;
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (!response.ok) {
+                throw new Error('파일 읽기 실패');
+            }
+
+            const content = await response.text();
+            console.log('파일 내용:', content);
+
+            if (!content) {
+                navigate('/filecompiler', { state: { fileName: file.name, fileType: file.type } });
+              } else {
+                navigate('/filecompiler', { state: { fileName: file.name, fileType: file.type, content: content } });
+              }
+
+        } catch (error) {
+            console.error('파일 읽기 오류:', error.message);
+        }
+
     };
     
     

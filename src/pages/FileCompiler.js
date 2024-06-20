@@ -67,7 +67,6 @@ const customCppCompletion = completeFromList(
 
 function CodeCompiler() {
   const [code, setCode] = useState('');
-  //const [language, setLanguage] = useState('java');
   const [output, setOutput] = useState('');
   const [interpreterInput, setInterpreterInput] = useState('');
   const [inputQueue, setInputQueue] = useState([]);
@@ -75,22 +74,16 @@ function CodeCompiler() {
   const [requiresInput, setRequiresInput] = useState(false);
   const location = useLocation();
   const [fileName, setFileName]= useState('');
-  const [fileType, setFileType] = useState('');    
+  const [fileType, setFileType] = useState('');
 
-  // 입력된 값 로그
-  /*
-  useEffect(() => {
-    console.log('코드:', code);
-    console.log('언어:', language);
-  }, [code, language]);
-    */
-   
   useEffect(() => {
     if (location.state) {
         setFileName(location.state.fileName);
         setFileType(location.state.fileType);
+        setCode(location.state.content);
     }
     }, [location.state]);
+
 
   // 컴파일 실행
   const compileCode = async () => {
@@ -198,12 +191,8 @@ function CodeCompiler() {
         const result = await response.json();
         console.log('코드 업데이트 결과:', result);
 
-        // 업데이트 성공 시에 필요한 처리 작업 추가
-        // 예를 들어 사용자에게 업데이트 성공 메시지 표시 등
-
     } catch (error) {
         console.error('코드 업데이트 오류:', error);
-        // 오류 처리 로직 추가
     }
     };
 
