@@ -10,7 +10,7 @@ function MissionList() {
 
   const fetchProblems = async () => {
     try {
-      const response = await fetch('http://localhost:8080/mission');
+      const response = await fetch('http://43.203.243.249:8080/mission');
       if (!response.ok) {
         throw new Error('문제 목록 가져오기 실패');
       }
