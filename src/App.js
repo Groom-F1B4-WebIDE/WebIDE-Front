@@ -5,7 +5,6 @@ import Main from './pages/Main';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import CodeCompiler from './pages/CodeCompiler';
 import Containers from './pages/Containers';
 import FileCompiler from './pages/FileCompiler';
 import Board from './pages/Board'; // 새로 만든 Board 컴포넌트 임포트
