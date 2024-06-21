@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/Main-modal.css';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 function Main({ darkMode, handleToggle }) {
   const [user, setUser] = useState(null);
+  const [date, setDate] = useState(new Date())
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,6 +16,13 @@ function Main({ darkMode, handleToggle }) {
   const Logout = () => {
     localStorage.clear();//로컬스토리지를 비워서 주소창에 main으로 바로 접속하려고하면 loading을 반환해서 페이지가 뜨지 않게
     navigate('/');  
+  };  
+  const tileContent = ({ date, view }) => {
+    if (view === 'month' && date.getDate() === new Date().getDate() &&
+        date.getMonth() === new Date().getMonth() &&
+        date.getFullYear() === new Date().getFullYear()) {
+      return <div style={{ backgroundColor: 'lightblue' }}></div>;
+    }
   };
   if (!user) {
     return <div>Loading...</div>;
@@ -132,7 +142,11 @@ function Main({ darkMode, handleToggle }) {
             </div>
             <div className="calendar">
               <h2>달력</h2>
-              <p>Calendar content</p>
+              <Calendar
+                onChange={setDate}
+                value={date}
+                tileContent={tileContent}
+              />
             </div>
           </div>
           <div className="new-activities">
