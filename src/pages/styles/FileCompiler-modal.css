@@ -27,6 +27,10 @@
     text-decoration: underline;
   }
   
+  .code-editor-container {
+    color: #3f3e3e;
+  }
+
   .mainContainer {
     display: flex;
     justify-content: space-between;
@@ -44,11 +48,105 @@
     margin-bottom: 10px;
   }
   
-  .compileButton {
+  /* .compileButton {
     margin-bottom: 10px;
     position: absolute;
     top: 5px;
     right: 10px;
+  } */
+
+  .code-editor-container {
+      flex: 1;
+      position: relative;
+      width: 70%;
+      padding: 10px;
+  }
+
+  .code-editor-container .compile-button{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    transform: translateX(-60px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 5px; */
+    padding: 5px 10px;
+    gap: 15px;
+    background-color: #181717;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    color: white;
+  }
+
+  .code-editor-container .save-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 5px; */
+    padding: 5px 10px;
+    gap: 15px;
+    background-color: #181717;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    color: white;
+  }
+
+  .compile-button .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+  }
+  
+  .compile-button:hover {
+    background-color: transparent;
+  }
+  
+  .compile-button:hover .text {
+    color: #181717;
+  }
+  
+  .compile-button svg path {
+    transition: 400ms;
+  }
+  
+  .compile-button:hover svg path {
+    fill: white;
+  }
+
+  .save-button .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+  }
+  
+  .save-button:hover {
+    background-color: transparent;
+  }
+  
+  .save-button:hover .text {
+    color: #181717;
+  }
+  
+  .save-button svg path {
+    transition: 400ms;
+  }
+  
+  .save-button:hover svg path {
+    fill: white;
   }
   
   .consoleContainer {

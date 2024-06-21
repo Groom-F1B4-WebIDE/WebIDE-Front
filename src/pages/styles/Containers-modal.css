@@ -32,7 +32,7 @@
 
     .file-logo {
     font-size: 24px;
-    color: #ecf0f1;
+    color: #61dafb;
     margin-bottom: 40px;
     }
 
@@ -50,6 +50,7 @@
     .file-top-bar {
     font-size: 15px;
     padding: 10px;
+    color: #1a252f;
     }
     
     /* 가로선 스타일 */
@@ -91,6 +92,7 @@
     border-radius: 8px;
     width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #1a252f;
     }
 
     .modal-content input,
@@ -133,6 +135,7 @@
         margin-right: 20px;
         cursor: pointer;
         transition: box-shadow 0.3s ease;
+        color: rgb(2, 14, 15);
     }
 
     .container-info {
