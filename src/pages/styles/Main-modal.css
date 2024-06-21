@@ -1,21 +1,34 @@
-.app{
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+.app {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: black; 
 }
 
 .container {
-display: flex;
-max-width: 1200px;
-width: 100%;
-height: 100%;
-background-color: #1a252f;
-border-radius: 15px;
-overflow: hidden;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-position: relative;
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    background-color: #1a252f;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    color: white;
+}
+.app:not(.dark-mode) .sidebar,
+.app:not(.dark-mode) .main-content,
+.app:not(.dark-mode) .top-bar h1,
+.app:not(.dark-mode) .search-bar,
+.app:not(.dark-mode) .statistics,
+.app:not(.dark-mode) .progress,
+.app:not(.dark-mode) .tasks,
+.app:not(.dark-mode) .calendar,
+.app:not(.dark-mode) .new-activities {
+    color: black;
 }
   
   .sidebar {

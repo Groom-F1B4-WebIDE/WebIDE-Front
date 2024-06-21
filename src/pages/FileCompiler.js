@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
 import { java } from '@codemirror/lang-java';
 import { cpp } from '@codemirror/lang-cpp';
 import { amy } from 'thememirror';
 import { autocompletion, completeFromList } from '@codemirror/autocomplete';
-import './styles/CodeCompiler-modal.css';
+import './styles/FileCompiler-modal.css';
 
 // 자동 완성 배열
 const javaKeywords = [
@@ -66,18 +67,23 @@ const customCppCompletion = completeFromList(
 
 function CodeCompiler() {
   const [code, setCode] = useState('');
-  const [language, setLanguage] = useState('java');
   const [output, setOutput] = useState('');
   const [interpreterInput, setInterpreterInput] = useState('');
   const [inputQueue, setInputQueue] = useState([]);
   const [isCompiled, setIsCompiled] = useState(false);
   const [requiresInput, setRequiresInput] = useState(false);
+  const location = useLocation();
+  const [fileName, setFileName]= useState('');
+  const [fileType, setFileType] = useState('');
 
-  // 입력된 값 로그
   useEffect(() => {
-    console.log('코드:', code);
-    console.log('언어:', language);
-  }, [code, language]);
+    if (location.state) {
+        setFileName(location.state.fileName);
+        setFileType(location.state.fileType);
+        setCode(location.state.content);
+    }
+    }, [location.state]);
+
 
   // 컴파일 실행
   const compileCode = async () => {
@@ -87,7 +93,7 @@ function CodeCompiler() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ code, language }),
+        body: JSON.stringify({ code : code, language : fileType }),
       });
 
       if (!response.ok) {
@@ -100,11 +106,11 @@ function CodeCompiler() {
       setIsCompiled(true);
 
       // 각 언어에 대한 입력 여부 체크
-      if (language === 'python' && code.includes('input(')) {
+      if (fileType === 'python' && code.includes('input(')) {
         setRequiresInput(true);
-      } else if (language === 'java' && code.includes('new Scanner') || code.includes('new BufferedReader')) {
+      } else if (fileType === 'java' && code.includes('new Scanner') || code.includes('new BufferedReader')) {
         setRequiresInput(true);
-      } else if (language === 'cpp' && code.includes('cin')) {
+      } else if (fileType === 'cpp' && code.includes('cin')) {
         setRequiresInput(true);
       } else {
         setRequiresInput(false);
@@ -156,7 +162,7 @@ function CodeCompiler() {
   };
 
   const getLanguageExtension = () => {
-    switch (language) {
+    switch (fileType) {
       case 'java':
         return [java(), autocompletion({ override: [customJavaCompletion] })];
       case 'python':
@@ -167,6 +173,28 @@ function CodeCompiler() {
         return [];
     }
   };
+
+  const saveCode = async (code) => {
+    try {
+        const response = await fetch('http://localhost:8080/file/update', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ fileName : fileName, content : code }),
+        });
+
+        if (!response.ok) {
+            throw new Error('서버 요청 실패');
+        }
+
+        const result = await response.json();
+        console.log('코드 업데이트 결과:', result);
+
+    } catch (error) {
+        console.error('코드 업데이트 오류:', error);
+    }
+    };
 
   return (
     <div className="App">
@@ -182,32 +210,24 @@ function CodeCompiler() {
         </nav>
       </header>
       <div className="main-container">
-        <div className="code-editor-container">
-          <select id="language" value={language} onChange={(e) => setLanguage(e.target.value)} className = "language-select">
-            <option value="java">Java</option>
-            <option value="python">Python</option>
-            <option value="cpp">C++</option>
-          </select>
-          
-          <button className="compile-button" onClick={compileCode}>
-            {/* <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"></path>
-              <path
-                d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z"
-                fill="white"
-              ></path>
-            </svg>     */}
-            <p className="text">Compile</p>
-          </button>
-
-          <CodeMirror
-            value={code}
-            height="500px"
-            extensions={getLanguageExtension()}
-            theme={amy}
-            onChange={(value) => setCode(value)}
-          />
-        </div>
+                <div className="code-editor-container">
+                    <h3>{`${fileName}.${fileType}`}</h3>
+                    <div className="button-container">
+                        <button className="compile-button" onClick={compileCode}>
+                            <p className="text">Compile</p>
+                        </button>
+                        <button className="compile-button" onClick={() => saveCode(code)}>
+                            <p className="text">Save</p>
+                        </button>
+                    </div>
+                    <CodeMirror
+                        value={code}
+                        height="500px"
+                        extensions={getLanguageExtension()}
+                        theme={amy}
+                        onChange={(value) => setCode(value)}
+                    />
+                </div>
         <div className="console-container">
           <h2>Console</h2>
           <pre>{output}</pre>

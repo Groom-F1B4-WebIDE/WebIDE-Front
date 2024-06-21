@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0f0f3d;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.home-container {
+  text-align: center;
+  background-color: #0f0f3d;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  padding-left: 500;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #61dafb;
+}
+
+.home-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-main h1 {
+  font-size: 3rem;
+  color: #61dafb;
+  margin-bottom: 1rem;
+}
+
+.home-main p {
+  font-size: 1.2rem;
+  color: #c7c7f7;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.home-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.home-button {
+  background-color: #61dafb;
+  color: #ffffff; /* 흰색 글자 */
+  font-weight: bold; /* 굵게 */
+  border: none;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.home-button:hover {
+  background-color: #21a1f1;
+}
