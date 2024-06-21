@@ -1,0 +1,50 @@
+.submission-result {
+    width: 60%;
+    padding: 20px;
+    /* background-color: #f8f9fa; */
+    background-color: #eef2ff; /* 배경색 변경 */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .submission-result h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .result-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .test-case {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    /* background-color: #ffffff; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .test-case.correct {
+    border-color: #4CAF50;
+    background-color: #d4edda;
+  }
+  
+  .test-case.incorrect {
+    border-color: #f44336;
+    background-color: #f8d7da;
+  }
+  
+  .test-case h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .result-detail p {
+    margin: 5px 0;
+    font-size: 0.95em;
+  }
+  

@@ -1,0 +1,151 @@
+/* 전체 컨테이너 레이아웃 */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  /* 메인 콘텐츠 컨테이너 */
+  .content-container {
+    width: 70%;
+  }
+  
+  .mission-intro {
+    margin-bottom: 20px;
+  }
+  
+  .problem-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 190px;
+    height: 254px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+  }
+  
+  .card-details {
+    color: black;
+    height: 100%;
+    gap: 0.5em;
+    display: grid;
+    place-content: center;
+  }
+  
+  .card-button {
+    transform: translate(-50%, 125%);
+    width: 60%;
+    border-radius: 1rem;
+    border: none;
+    background-color: #008bf8;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s ease-out;
+  }
+  
+  .text-body {
+    color: rgb(134, 134, 134);
+  }
+
+  .text-title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .text-day {
+    font-size: 1.0em;
+    font-weight: bold;
+  }
+  
+  .card:hover {
+    border-color: #008bf8;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+  }
+  
+  .card:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+  }
+  
+  .problem-link {
+    text-decoration: none;
+  }
+  
+  .check-mark {
+    color: green;
+    font-size: 1.5em;
+  }
+  
+  /* 프로필 컨테이너 */
+  .profile-container {
+    width: 25%;
+    background: #f1f1ff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .profile-card {
+    text-align: center;
+  }
+  
+  .profile-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .activity-progress {
+    margin-top: 20px;
+  }
+  
+  .progress-bar {
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress {
+    background: #4caf50;
+    height: 10px;
+  }
+  
+  /* 페이지네이션 */
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .custom-button {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+  }
+  
+  .custom-button:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+  }

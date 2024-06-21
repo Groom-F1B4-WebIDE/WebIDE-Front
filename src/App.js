@@ -9,13 +9,17 @@ import CodeCompiler from './pages/CodeCompiler';
 import Containers from './pages/Containers';
 import FileCompiler from './pages/FileCompiler';
 import Board from './pages/Board'; // 새로 만든 Board 컴포넌트 임포트
+import Mission from './pages/Mission';
+import MissionList from './pages/MissionList';
+import CodeCompiler from './pages/CodeCompiler';
+import ResultByMission from './pages/ResultByMission';
+import ResultByUser from './pages/ResultByUser';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   const handleToggle = () => {
     setDarkMode(!darkMode);
-    
   };
   
   return (
@@ -30,18 +34,19 @@ function App() {
           <Route path="/board" element={<Board />} /> {/* 새 라우트 추가 */}
           <Route path="/files" element={<Containers />} />
           <Route path="/filecompiler" element={<FileCompiler />} />
+          <Route path="/mission-list" element={<MissionList />} />
+          <Route path="/mission/:id" element={<Mission />} />
+          <Route path="/mission/:id/submissions" element={<ResultByMission />} />
+          <Route path="/user/:memberEmail/submissions" element={<ResultByUser />} />
           <Route
             path="/main"
             exact
             element={<Main darkMode={darkMode} handleToggle={handleToggle} />}
           />
-          
         </Routes>
       {/* </div> */}
     </Router>
   );
-
-  
 }
 
 export default App;
