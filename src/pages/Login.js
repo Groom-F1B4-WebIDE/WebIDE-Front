@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import api from '../api';
+import api from '../api';  // api 인스턴스를 가져옵니다
 import './styles/Login.css';
 
 const Login = () => {
@@ -20,12 +20,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/member/login', formData);
-      const user = response.data; 
+      const response = await api.post('/api/member/login', formData);  // 로그인 API 호출
+      const user = response.data;
       console.log('로그인 성공:', user);
       localStorage.setItem('user', JSON.stringify(user));
-
-      navigate('/main'); 
+      navigate('/main');  // 로그인 성공 시 메인 페이지로 이동
     } catch (error) {
       console.error('로그인 실패:', error);
     }
