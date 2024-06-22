@@ -88,7 +88,7 @@ function CodeCompiler() {
   // 컴파일 실행
   const compileCode = async () => {
     try {
-      const response = await fetch('http://localhost:8080/code/compile', {
+      const response = await fetch('http://43.203.243.249:8080/code/compile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ function CodeCompiler() {
     try {
       console.log('실행 버튼 클릭 - 입력값:', input);
 
-      const response = await fetch('http://localhost:8080/api/code/execute', {
+      const response = await fetch('http://43.203.243.249:8080/code/execute', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -176,7 +176,7 @@ function CodeCompiler() {
 
   const saveCode = async (code) => {
     try {
-        const response = await fetch('http://localhost:8080/file/update', {
+        const response = await fetch('http://43.203.243.249:8000/file/update', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
