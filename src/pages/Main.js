@@ -8,8 +8,8 @@ import 'react-calendar/dist/Calendar.css';
 
 function Main({ darkMode, handleToggle }) {
   const [user, setUser] = useState(null);
-  const [date, setDate] = useState(new Date())
   const [storedFiles, setStoredFiles] = useState([]);
+  const [date, setDate] = useState(new Date())
   const navigate = useNavigate();
 
   useEffect(() => {
