@@ -71,7 +71,7 @@ const [submissionResults, setSubmissionResults] = useState(null);
 
   const fetchProblem = async () => {
     try {
-      const response = await fetch(`http://43.203.243.249:8080/mission/${id}`);
+      const response = await fetch(`http://54.180.131.150:8080/mission/${id}`);
       if (!response.ok) {
         throw new Error('문제 가져오기 실패');
       }
@@ -84,7 +84,7 @@ const [submissionResults, setSubmissionResults] = useState(null);
 
   const submitSolution = async () => {
     try {
-      const response = await fetch(`http://43.203.243.249:8080/mission/${id}/submit`, {
+      const response = await fetch(`http://54.180.131.150:8080/mission/${id}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code, language }),

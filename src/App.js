@@ -13,12 +13,41 @@ import MissionList from './pages/MissionList';
 import CodeCompiler from './pages/CodeCompiler';
 import ResultByMission from './pages/ResultByMission';
 import ResultByUser from './pages/ResultByUser';
+import Save from './pages/Save';
+import PostDetail from './pages/PostDetail';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [posts, setPosts] = useState([]);  // posts 상태 정의
 
   const handleToggle = () => {
     setDarkMode(!darkMode);
+  };
+
+  // 백엔드 서버 URL
+   const BASE_URL = 'http://54.180.131.150:8000';
+
+
+  // 로컬 백엔드 서버 URL
+  // const BASE_URL = 'http://localhost:8080';
+
+ 
+
+  // 새로운 게시글 저장하기
+  const addPost = (newPost) => {
+    setPosts([...posts, newPost]);
+  };
+
+  const addComment = (postId, comment) => {
+    setPosts(posts.map(post => 
+      post.id === postId ? { ...post, comments: [...post.comments, comment] } : post
+    ));
+  };
+
+  const updateHits = (id) => {
+    setPosts(posts.map(post => 
+      post.id === id ? { ...post, hits: post.hits + 1 } : post
+    ));
   };
   
   return (
@@ -37,6 +66,9 @@ function App() {
           <Route path="/mission/:id" element={<Mission />} />
           <Route path="/mission/:id/submissions" element={<ResultByMission />} />
           <Route path="/user/:memberEmail/submissions" element={<ResultByUser />} />
+          <Route path="/save" element={<Save />} />
+          <Route path="/board" element={<Board posts={posts} setPosts={setPosts} />} />
+          <Route path="/post/:id" element={<PostDetail posts={posts} />} />
           <Route
             path="/main"
             exact
