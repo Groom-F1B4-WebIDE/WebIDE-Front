@@ -90,7 +90,7 @@ function MissionList() {
 
         </div>
       </div>
-      <div className="profile-container">
+      {/* <div className="profile-container">
         <div className="profile-card">
           <img src="https://via.placeholder.com/100" alt="프로필" className="profile-image"/>
           <h3>이름</h3>
@@ -106,7 +106,7 @@ function MissionList() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
