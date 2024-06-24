@@ -14,13 +14,10 @@ function Containers() {
 
     //localstorage에서 가져와서 파일 목록 불러옴 
     useEffect(() => {
-        console.log('saving data to local storage', compiledFiles);
-
         const storedFiles = JSON.parse(sessionStorage.getItem('compiledFiles'));
         if (storedFiles) {
             setCompiledFiles(storedFiles);
           }
-          
         }, []);
  
     useEffect(() => {
@@ -37,6 +34,7 @@ function Containers() {
     const RealCreateContainer = async () => {
         try {
             const response = await fetch('http://54.180.131.150:8080/file/create', {
+
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -127,7 +125,6 @@ function Containers() {
 
     };
     
-    
     const CloseModal = () => {
         setModalOpen(false);
         setFileName('');
@@ -137,15 +134,15 @@ function Containers() {
     return (
         <div className='files'> 
             <div className='file-sidebar'>
-                <h2 className="file-logo"> 내 컨테이너</h2>
+                <h2 className="file-logo"> My Container</h2>
             </div>
             <div className="file-main-content">
                 <div className="file-top-bar">
-                    <h1>모든 컨테이너</h1>
+                    <h1>All Container</h1>
                 </div>
                 <div className="horizontal-line"></div>
                 <button className="file-create-button" onClick={CreateContainerButton}> 
-                    <h4>+ 컨테이너 생성하기</h4>
+                    <h4>+ Create Container</h4>
                 </button>
                 <div className='container-box-list'>
                     {compiledFiles.map((file, index) => (
@@ -153,8 +150,8 @@ function Containers() {
                             <div className='container-info'>
                                 <h3>{file.type === 'java' ? file.name + '.java' : file.type === 'python' ? file.name + '.py' : file.type === 'cpp' ? file.name + '.cpp' : file.name}</h3>
                             </div>
-                            <button className="run-button" onClick={() => executeContainer(file)}>실행</button>
-                            <button className="run-button" onClick={() => DeleteContainer(file)}>컨테이너 삭제</button>
+                            <button className="run-button" onClick={() => executeContainer(file)}>Run</button>
+                            <button className="run-button" onClick={() => DeleteContainer(file)}>Delete </button>
                         </div>
                     ))}
                 </div>
@@ -162,7 +159,7 @@ function Containers() {
             {modalOpen && (
                 <div className="modal">
                     <div className="modal-content">
-                        <h2>새로운 컨테이너 생성하기</h2>
+                        <h2>Create new container</h2>
                         <input
                             type="text"
                             placeholder="파일 이름"
@@ -178,8 +175,8 @@ function Containers() {
                             <option value="python">Python</option>
                             <option value="cpp">C++</option>
                         </select>
-                        <button onClick={RealCreateContainer}>생성하기</button>
-                        <button className="close-button" onClick={() => setModalOpen(false)}>취소</button>
+                        <button onClick={RealCreateContainer}>Create</button>
+                        <button className="close-button" onClick={() => setModalOpen(false)}>Go back</button>
                     </div>
                 </div>
             )}

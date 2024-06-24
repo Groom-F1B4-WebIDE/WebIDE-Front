@@ -216,7 +216,7 @@ function CodeCompiler() {
                         <button className="compile-button" onClick={compileCode}>
                             <p className="text">Compile</p>
                         </button>
-                        <button className="compile-button" onClick={() => saveCode(code)}>
+                        <button className="save-button" onClick={() => saveCode(code)}>
                             <p className="text">Save</p>
                         </button>
                     </div>
