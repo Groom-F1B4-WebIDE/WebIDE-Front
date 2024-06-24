@@ -1,0 +1,92 @@
+/* styles/PostDetail.css */
+
+.post-detail-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-detail-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.post-detail-container .post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.post-detail-container .post-header h2 {
+  margin: 0;
+  color: #555;
+}
+
+.post-detail-container .post-header .post-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.post-detail-container .post-header .post-actions button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.post-detail-container .post-header .post-actions button:hover {
+  background-color: #0056b3;
+}
+
+.post-detail-container .post-content {
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.post-detail-container .post-comments {
+  margin-top: 30px;
+}
+
+.post-detail-container .post-comments h3 {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.post-detail-container .post-comments .comment {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.post-detail-container .post-comments .comment .comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.post-detail-container .post-comments .comment .comment-header .comment-author {
+  font-weight: bold;
+  color: #555;
+}
+
+.post-detail-container .post-comments .comment .comment-header .comment-date {
+  font-size: 12px;
+  color: #999;
+}
+
+.post-detail-container .post-comments .comment .comment-body {
+  color: #666;
+}

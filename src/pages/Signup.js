@@ -26,7 +26,7 @@ const Signup = () => {
     e.preventDefault();
     setError('');
     try {
-      const response = await api.post('/member/signup', formData);
+      const response = await api.post('/api/member/signup', formData);
       console.log('회원가입 성공:', response.data);
       navigate('/login'); 
     } catch (error) {

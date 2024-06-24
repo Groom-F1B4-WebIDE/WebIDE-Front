@@ -1,0 +1,81 @@
+/* Container for the entire form */
+.post-form-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Title of the form */
+
+.post-form-container h1 {
+  color: #000; /* 블랙 색상 */
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post-form-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+  font-size: 24px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+/* Form layout */
+.post-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels for inputs */
+.post-form-container label {
+  margin-top: 15px;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Inputs and textarea */
+.post-form-container input, 
+.post-form-container textarea {
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.post-form-container input:focus, 
+.post-form-container textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* File input styling */
+.post-form-container .file-input {
+  margin-top: 10px;
+}
+
+/* Submit button */
+.post-form-container button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.post-form-container button:hover {
+  background-color: #0056b3;
+}
