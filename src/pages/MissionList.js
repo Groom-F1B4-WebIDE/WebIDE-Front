@@ -15,7 +15,7 @@ function MissionList() {
 
   const fetchProblems = async () => {
     try {
-      const response = await fetch('http://43.203.243.249:8080/mission');
+      const response = await fetch('http://54.180.131.150:8080/mission');
       if (!response.ok) {
         throw new Error('문제 목록 가져오기 실패');
       }
@@ -28,7 +28,7 @@ function MissionList() {
 
   const fetchMissionResults = async () => {
     try {
-      const response = await fetch('http://43.203.243.249:8080/mission-results');
+      const response = await fetch('http://54.180.131.150:8080/mission-results');
       if (!response.ok) {
         throw new Error('결과 목록 가져오기 실패');
       }

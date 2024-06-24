@@ -12,7 +12,7 @@ function ResultByUser() {
 
   const fetchUserResults = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/mission/user/${memberEmail}/submissions`);
+      const response = await fetch(`http://54.180.131.150:8080/mission/user/${memberEmail}/submissions`);
       if (!response.ok) {
         throw new Error('제출 결과 가져오기 실패');
       }

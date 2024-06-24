@@ -33,7 +33,8 @@ function Containers() {
     
     const RealCreateContainer = async () => {
         try {
-            const response = await fetch('http://43.203.243.249:8000/file/create', {
+            const response = await fetch('http://54.180.131.150:8080/file/create', {
+
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,7 +69,7 @@ function Containers() {
 
     const DeleteContainer = async (file) => {
         try {
-            const response = await fetch('http://43.203.243.249:8000/file/delete', {
+            const response = await fetch('http://54.180.131.150:8080/file/delete', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -98,7 +99,7 @@ function Containers() {
     const executeContainer = async (file) => {
 
         try {
-            const url = `http://43.203.243.249:8000/file/read?fileName=${encodeURIComponent(file.name)}`;
+            const url = `http://54.180.131.150:8080/file/read?fileName=${encodeURIComponent(file.name)}`;
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {

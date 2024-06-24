@@ -1,0 +1,64 @@
+/* Board.css */
+.board-container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 80px;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+.board-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #000000;
+}
+
+.board-container a {
+  display: inline-block;
+  margin-bottom: 0px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.board-container a:hover {
+  text-decoration: underline;
+}
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.board-table th, .board-table td {
+  border: 1px solid #000000;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.board-table th {
+  background-color: #000000;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
+
+.board-table tr {
+  transition: background-color 0.3s;
+}
+
+.board-table tr:hover {
+  background-color: #ffffff;
+}
+
+.board-table th:first-child, 
+.board-table td:first-child {
+  text-align: center;
+}
+
+.board-table th:last-child, 
+.board-table td:last-child {
+  text-align: center;
+}
