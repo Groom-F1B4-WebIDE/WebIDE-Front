@@ -122,7 +122,7 @@ const [submissionResults, setSubmissionResults] = useState(null);
 
   return (
     <div className="App">
-      <header>
+      {/* <header>
         <div className="logo">
           <img src="" alt="F1B4" />
         </div>
@@ -132,7 +132,7 @@ const [submissionResults, setSubmissionResults] = useState(null);
           <a href="#">Pricing</a>
           <a href="#">Features</a>
         </nav>
-      </header>
+      </header> */}
       <div className="mission-container"> {/* 추가된 컨테이너 */}
         <div className="problem-and-editor">
             <div className="problem-container"> {/* 문제 설명 컨테이너 */}
